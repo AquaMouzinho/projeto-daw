@@ -17,7 +17,12 @@ public class Professor implements Identificavel {
 	private String nome;
 	private String cpf;
 	private int telefone;
+	private String email;
 	private Disciplina disciplina;
+
+	private String username;
+	private String password;
+	private String grupo;
 
 	// Get e Set
 
@@ -61,17 +66,54 @@ public class Professor implements Identificavel {
 		this.disciplina = disciplina;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+
 	public Professor() {
 		super();
 	}
 
-	public Professor(Long id, String nome, String cpf, int telefone, Disciplina disciplina) {
+	public Professor(Long id, String nome, String cpf, int telefone, String email, Disciplina disciplina,
+			String username, String password, String grupo) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
+		this.email = email;
 		this.disciplina = disciplina;
+		this.username = username;
+		this.password = password;
+		this.grupo = grupo;
 	}
 
 	@Override
