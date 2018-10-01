@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Gerenciador de Alunos</title>
+</h:head>
+
+<h:body>
+	<h:messages />
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				Cadastro
+			</f:facet>
+
+			<h:outputLabel value="Nome:" for="nomeAlmocoField" />
+			<h:inputText id="nomeAlmocoField" label="nome"
+				value="#{almocoBean.almoco.nome}" />
+
+			<h:outputLabel value="Acompanhamentos:"
+				for="acompanhamentosAlmocoField" />
+			<h:inputText id="acompanhamentosAlmocoField" label="acompanhamentos"
+				value="#{almocoBean.almoco.acompanhamentos}" />
+
+			<h:outputLabel value="Preco:" for="precoAlmocoField" />
+			<h:inputText id="precoAlmocoField" label="preco"
+				value="#{almocoBean.almoco.preco}" />
+
+			<h:commandButton value="Cadastrar" action="#{almocoBean.save()}" />
+		</h:panelGrid>
+
+		<br />
+
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				Remoçao
+			</f:facet>
+			<br />
+				Id: <h:inputText value="#{almocoBean.idExcluir}" />
+			<br />
+			<h:commandButton value="Excluir"
+				action="#{almocoBean.remove(almocoBean.idExcluir)}" />
+
+		</h:panelGrid>
+	</h:form>
+
+	<br />
+
+	<h:dataTable var="al" value="#{almocoBean.almocos}" border="1">
+		<f:facet name="header">
+				Lista de Almocos
+			</f:facet>
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+			<h:outputText value="#{al.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{al.nome}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Acompanhamentos</f:facet>
+			<h:outputText value="#{al.acompanhamentos}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Preco</f:facet>
+			<h:outputText value="#{al.preco}" />
+
+		</h:column>
+	</h:dataTable>
+
+
+</h:body>
+
+</html>

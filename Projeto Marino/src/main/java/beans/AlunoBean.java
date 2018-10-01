@@ -8,39 +8,38 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import DAO.AlmocoDAO;
-import entidades.Almoco;
+import entidades.Aluno;
 import services.AlunoService;
 
 @Named
 @ApplicationScoped
-public class AlunoBean implements Serializable{
-	
-	@Inject	
-	private AlunoService servico;	
-	
-	private Almoco almoco; 
-	
-	private Collection<Almoco> almocos;
-	
+public class AlunoBean implements Serializable {
+
+	@Inject
+	private AlunoService servico;
+
+	private Aluno aluno;
+
+	private Collection<Aluno> alunos;
+
 	private Long idExcluir;
-	
-	public Almoco getAlmoco() {
-		return almoco;
+
+	public Aluno getAluno() {
+		return aluno;
 	}
 
-	public void setAlmoco(Almoco almoco) {
-		this.almoco = almoco;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 
 	public void setServico(AlunoService servico) {
 		this.servico = servico;
 	}
 
-	public Collection<Almoco> getAlmocos() {
-		return almocos;
+	public Collection<Aluno> getAlunos() {
+		return alunos;
 	}
-	
+
 	public Long getIdExcluir() {
 		return idExcluir;
 	}
@@ -48,37 +47,37 @@ public class AlunoBean implements Serializable{
 	public void setIdExcluir(Long idExcluir) {
 		this.idExcluir = idExcluir;
 	}
-	
+
 	public AlunoService getServico() {
 		return servico;
 	}
 
-	public Almoco getEntidade() {
-		return almoco;
+	public Aluno getEntidade() {
+		return aluno;
 	}
 
-	public void setEntidade(Almoco entidade) {
-		this.almoco = entidade;
+	public void setEntidade(Aluno entidade) {
+		this.aluno = entidade;
 	}
 
-	public void setAlmocos(Collection<Almoco> almocos) {
-		this.almocos = almocos;
+	public void setAlmocos(Collection<Aluno> alunos) {
+		this.alunos = alunos;
 	}
 
 	@PostConstruct
 	public void init() {
-		almoco = newEntidade();
-		almocos = getServico().getAll();
+		aluno = newEntidade();
+		alunos = getServico().getAll();
 	}
 
 	public void remove(Long id) {
-		Almoco almocoN = getServico().getByID(id);
-		getServico().remove(almocoN);
+		Aluno alunoN = getServico().getByID(id);
+		getServico().remove(alunoN);
 		limpar();
 	}
 
 	public void save() {
-		getServico().save(almoco);
+		getServico().save(aluno);
 		limpar();
 	}
 
@@ -88,13 +87,12 @@ public class AlunoBean implements Serializable{
 	}
 
 	public void limpar() {
-		almocos = getServico().getAll();
-		almoco = newEntidade();
+		alunos = getServico().getAll();
+		aluno = newEntidade();
 	}
 
-	protected Almoco newEntidade() {
-		return new Almoco();
+	protected Aluno newEntidade() {
+		return new Aluno();
 	}
 
-	
 }
