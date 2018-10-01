@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Gerenciador de Cidades</title>
+</h:head>
+
+
+<h:body>
+
+<h:form>
+	
+	Nome: <h:inputText  value="#{cidadeBean.cidade.nome}"></h:inputText> 
+	Cep: <h:inputText  value="#{cidadeBean.cidade.cep}"></h:inputText> 
+	 	
+	<h:commandButton value="Cadastrar" action="#{cidadeBean.addCidade()}" ></h:commandButton>
+	<h:commandButton value="Editar" action="#{cidadeBean.updateCidade()}" ></h:commandButton>
+	<h:commandButton value="Remover" action="#{cidadeBean.removeCidade()}" ></h:commandButton>
+	<h:commandButton value="Mostrar" action="#{cidadeBean.mostrarCidade()}" ></h:commandButton>
+
+</h:form>
+<h:dataTable var="cid" value="#{cidadeBean.cidades}">
+	<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{cid.nome}" />	
+		</h:column>
+		<h:column>
+			<f:facet name="header">Cep</f:facet>
+			<h:outputText value="#{cid.cep}" />
+		</h:column>
+</h:dataTable>
+
+
+</h:body>
+
+</html>

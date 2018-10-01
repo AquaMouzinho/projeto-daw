@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Gerenciador de Disciplinas</title>
+</h:head>
+
+
+<h:body>
+
+<h:form>
+	
+	Nome: <h:inputText  value="#{clienteBean.cliente.nome}"></h:inputText> 
+	Telefone: <h:inputText  value="#{clienteBean.cliente.tel}"></h:inputText>
+	Id: <h:inputText  value="#{clienteBean.cliente.id}"></h:inputText> 
+	Endereço: <h:inputText  value="#{cliente.cliente.endereco}"></h:inputText> 
+	 	
+	<h:commandButton value="Cadastrar" action="#{clienteBean.addCliente()}" ></h:commandButton>
+	<h:commandButton value="Editar" action="#{clienteBean.updateCliente()}" ></h:commandButton>
+	<h:commandButton value="Remover" action="#{clienteBean.removeCliente()}" ></h:commandButton>
+	<h:commandButton value="Mostrar" action="#{clienteBean.mostrarCliente()}" ></h:commandButton>
+
+</h:form>
+<h:dataTable var="cli" value="#{clienteBean.clientes}">
+	<h:column>
+			<f:facet name="header">Nome</f:facet>
+			<h:outputText value="#{cli.nome}" />	
+		</h:column>
+		<h:column>
+			<f:facet name="header">Telefone</f:facet>
+			<h:outputText value="#{cli.tel}" />	
+		</h:column>
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+			<h:outputText value="#{cli.id}" />	
+		</h:column>
+		<h:column>
+			<f:facet name="header">Endereço</f:facet>
+			<h:outputText value="#{cli.endereco}" />
+		</h:column>
+</h:dataTable>
+
+
+</h:body>
+
+</html>
