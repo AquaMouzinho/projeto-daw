@@ -6,7 +6,7 @@
 	<persistence-unit name="teste" transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<non-jta-data-source>java:/marino</non-jta-data-source>
+		<non-jta-data-source>java:/teste</non-jta-data-source>
 
 		<class>entidades.Aluno</class>
 		<class>entidades.Professor</class>
